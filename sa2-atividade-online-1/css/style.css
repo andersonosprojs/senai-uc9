@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
 * {
   margin: 0%;
@@ -33,10 +34,173 @@
   display: flex;
   justify-content: space-between;
 }
+
 .banner {
-  height: 420px;
+  height: 490px;
   background-image: url(../images/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.section-promo {
+  height: 540px;
+  background-color: #000000;
+  padding-top: 50px;
+}
+
+.linha {
+  background-color: #ffffff;
+  height: 1px;
+}
+
+.section-title span {
+  color: #ffffff;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.item .item-image {
+  width: 337px;
+  height: 287px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item .item-image img {
+  width: 335px;
+  height: 285px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.item-description {
+  padding-top: 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.item-price {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.item-comprar {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #000580;
+  border-radius: 5px;
+  padding: 15px;
+  border-color: #ffffff;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.item-data {
+  width: 337px;
+  height: 287px;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.section-comments {
+  height: 670px;
+  background-color: #000000;
+  padding-top: 50px;
+}
+
+.item .item-image-comment img {
+  width: 230px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.item-comment {
+  width: 250px;
+  height: 200px;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+.item-comment .name-comment {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.item-comment .city-comment {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #5c5c5c;
+}
+
+.item-comment .desc-comment {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+footer {
+  background-color: #000580;
+  height: 250px;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  color: #ffffff;
+}
+
+.networks {
+  text-align: right;
+}
+
+.footer-title {
+  padding-top: 15px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.footer-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.btn-insta {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+}
+
+.btn-face {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.btn-twitter {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
 }
