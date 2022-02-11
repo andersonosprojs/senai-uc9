@@ -1,9 +1,12 @@
 
 $(document).ready(function() {
-    /* Carrosel para exibição de imagens. */
-    $("#carrosel img:eq(0)").addClass("banner-ativo").show()
+    /* Carrosel para exibição de promoções. */
+    $("#promos .promo-slide:eq(0)").addClass("promo-on").show()
 
-    setInterval(slides, 2000)    
+    /* Carrosel para exibição de comentários. */
+    $("#comments .comment-slide:eq(0)").addClass("comment-on").show()
+
+    setInterval(slides, 5000)    
 
     /* Faz o controle de mostrar ou não o menu de barras. */
     $("#barras").click(function() {
@@ -11,24 +14,29 @@ $(document).ready(function() {
     })
 })
 
-/* Função que controla o carrosel de exibição de imagens. */
+/* Função que controla o carrosel de exibição de promoçoes e comentários. */
 slides = () => {
-    
-    if ($(".banner-ativo").next().length) {
-        $(".banner-ativo").removeClass("banner-ativo").hide().next().addClass("banner-ativo").show()
+
+    if ($(".promo-on").next().length) {
+        $(".promo-on").removeClass("promo-on").hide().next().addClass("promo-on").show()
     } else {
-        $(".banner-ativo").removeClass().hide();
-        $("#carrosel img:eq(0)").addClass("banner-ativo").show()
+        $(".promo-on").removeClass().hide();
+        $("#promos .promo-slide:eq(0)").addClass("promo-on").show()
     }
+
+    if ($(".comment-on").next().length) {
+        $(".comment-on").removeClass("comment-on").hide().next().addClass("comment-on").show()
+    } else {
+        $(".comment-on").removeClass().hide();
+        $("#comments .comment-slide:eq(0)").addClass("comment-on").show()
+    }
+
 }
 
-// function mostrarPopup(){
-//     window.alert("Hello World")
-// }
-
 window.onresize = () => { 
-    let menu = document.getElementById("menu");
-    let comprimento = window.innerWidth
+    let comprimento = window.innerWidth;
+
+    renderizarSite();
 
     if (comprimento > 769) {
         if (!$("#menu").hasClass("menu-ativo")) {
@@ -38,7 +46,7 @@ window.onresize = () => {
         if ($("#menu").hasClass("menu-ativo")) {
             $("#menu").removeClass("menu-ativo")
         }
-    }
+    }    
 }
 
 document.getElementById("pesquisar").addEventListener('keydown', function(event) {
@@ -69,6 +77,42 @@ let listaComentarios = [
         cidade: "Florianópolis - SC",
         comentario: "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed."
     },
+    {
+        imagem: "./images/Julius.jpg",
+        nome: "Julius",
+        cidade: "Belo Horizonte - MG",
+        comentario: "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed."
+    },
+    {
+        imagem: "./images/chris.jpg",
+        nome: "Chris",
+        cidade: "Florianópolis - SC",
+        comentario: "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed."
+    },
+    {
+        imagem: "./images/Helena.png",
+        nome: "Helena",
+        cidade: "Teixeira de Freitas - BA",
+        comentario: "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed."
+    },
+    {
+        imagem: "./images/chris.jpg",
+        nome: "Chris",
+        cidade: "Florianópolis - SC",
+        comentario: "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed."
+    },
+    {
+        imagem: "./images/Helena.png",
+        nome: "Helena",
+        cidade: "Teixeira de Freitas - BA",
+        comentario: "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed."
+    },
+    {
+        imagem: "./images/Julius.jpg",
+        nome: "Julius",
+        cidade: "Belo Horizonte - MG",
+        comentario: "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed."
+    }
 ]
 
 let listaPromocoes = [
@@ -86,22 +130,37 @@ let listaPromocoes = [
         imagem: "./images/redmi-g-2021.jpg",
         descricao: "Notebook Gamer - XIAOMI G 2021",
         preco: "R$ 4999,99"
+    },
+    {
+        imagem: "./images/pes-2022.jpg",
+        descricao: "PES 2022 - Super Lançamento",
+        preco: "R$ 199,99"
+    },
+    {
+        imagem: "./images/redmi-g-2021.jpg",
+        descricao: "Notebook Gamer - XIAOMI G 2021",
+        preco: "R$ 4999,99"
+    },
+    {
+        imagem: "./images/ps4-pro.jpg",
+        descricao: "Console PlayStation 4",
+        preco: "R$ 2999,99"
+    },
+    {
+        imagem: "./images/redmi-g-2021.jpg",
+        descricao: "Notebook Gamer - XIAOMI G 2021",
+        preco: "R$ 4999,99"
+    },
+    {
+        imagem: "./images/ps4-pro.jpg",
+        descricao: "Console PlayStation 4",
+        preco: "R$ 2999,99"
+    },
+    {
+        imagem: "./images/pes-2022.jpg",
+        descricao: "PES 2022 - Super Lançamento",
+        preco: "R$ 199,99"
     }
-    // {
-    //     imagem: "./images/pes-2022.jpg",
-    //     descricao: "PES 2022 - Super Lançamento",
-    //     preco: "R$ 199,99"
-    // },
-    // {
-    //     imagem: "./images/redmi-g-2021.jpg",
-    //     descricao: "Notebook Gamer - XIAOMI G 2021",
-    //     preco: "R$ 4999,99"
-    // },
-    // {
-    //     imagem: "./images/ps4-pro.jpg",
-    //     descricao: "Console PlayStation 4",
-    //     preco: "R$ 2999,99"
-    // }
 ]
 
 renderizarSite = () => {
@@ -109,9 +168,19 @@ renderizarSite = () => {
     let promocoes = document.getElementById("promos");
 
     let template = "";
+    let strAux = "";
+    let contador = 0;
+    let comprimento = window.innerWidth;
+    let qtdItens = 0;
+
+    qtdItens = 1;
+    if (comprimento > 769) {
+        qtdItens = 3;
+    }
 
     listaComentarios.forEach(c => {
-        template += `
+        contador++
+        strAux += `
          <div class="container-comments col-md">
             <img src="${c.imagem}" alt="Cliente do comentário" />
             <p class="name-comment">${c.nome}</p>
@@ -119,22 +188,44 @@ renderizarSite = () => {
             <p class="desc-comment">${c.comentario}</p>
          </div>
         `;
-    });
+
+        if (contador == qtdItens) {
+            template += `<div class="row comment-slide">${strAux}</div>`;
+            contador = 0;
+            strAux = "";
+         }
+     });
 
     comentarios.innerHTML = template;
 
     template = "";
+    strAux = "";
 
     listaPromocoes.forEach(p => {
-        template += `
+        contador++
+        strAux += `
         <div class="container-promo col-md">
             <img src="${p.imagem}" alt="Item em promoção" />
             <p class="item-description">${p.descricao}</p>
             <p class="item-price">${p.preco}</p>
-            <a class="item-comprar">Comprar</a>    
+            <a href="#" class="item-comprar">Comprar</a>    
         </div>
         `;
+
+        if (contador == qtdItens) {
+           template += `<div class="row promo-slide">${strAux}</div>`;
+           contador = 0;
+           strAux = "";
+        }
     });
 
     promocoes.innerHTML = template;
+    slides()
+}
+
+function Login() {
+    let email = document.getElementById("campo-email");
+    let senha = document.getElementById("campo-senha");
+    console.log(email.value + ":" + senha.value);
+    alert(`E-mail digitado: ${email.value}`);
 }
