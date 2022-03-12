@@ -7,16 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  declare renderizarSite: any;
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  callRenderizarSite() {
-    alert("callRenderizarSite");
-    this.renderizarSite();
   }
 
 }
