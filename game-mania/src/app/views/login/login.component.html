@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login - GM (Game Mania)</title>
+</head>
+<body class="background-black">
+    <header>
+        <div class="header">
+            <div class="logomarca-pages">
+                <a href="index.html"><img src="assets/img/Logomarca.png" alt="logomarca do site" /> </a>
+            </div>
+        </div>
+        <div class="title-login">
+            <span>Informe seus dados para acessar ao site</span>
+        </div>
+    </header>
+    <div class="body-login">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+
+            <input type="email" name="email" id="email" placeholder="E-mail" required [(ngModel)]="userModel.email"><br/>
+            <input type="password" name="senha" id="senha"  placeholder="Senha" required [(ngModel)]="userModel.senha" ><br/>
+
+            <button type="submit" class="botao-cadastrar">Entrar</button>
+
+        </form>
+    </div>
+</body>
+
+</html>
