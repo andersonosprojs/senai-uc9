@@ -1,0 +1,16 @@
+<section class="section-comments" (window:resize)="onResize($event)">
+  <div id="comments" class="container">
+    <ng-container>
+      <div *ngFor="let item of listaComentarios" class="row">
+        <div class="comment-slide">
+          <div *ngFor="let c of item['comentarios']" class="col-md container-comments">
+            <img src="{{c.imagem}}" alt="Cliente do comentário" />
+            <p class="name-comment">{{c.nome}}</p>
+            <p class="city-comment">{{c.cidade}}</p>
+            <p class="desc-comment">{{c.comentario}}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>

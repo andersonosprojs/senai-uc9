@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+footer {
+  background-color: #000580;
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  color: #ffffff;
+}
+
+.footer-title {
+  padding-top: 15px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.footer-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.networks {
+  text-align: right;
+}
+
+.btn-insta {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+}
+
+.btn-face {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.btn-twitter {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .networks {
+    text-align: left;
+  }
+}

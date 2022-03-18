@@ -1,0 +1,14 @@
+<section class="section-promo" (window:resize)="onResize($event)">
+  <div id="promos" class="container">
+    <div *ngFor="let item of listaPromocoes" class="row">
+      <div class="promo-slide">
+        <div *ngFor="let p of item['Produtos']" class="col-md container-promo">
+          <img src={{p.imagem}} alt="Item em promoção" />
+          <p class="item-description">{{p.descricao}}</p>
+          <p class="item-price">{{p.preco}}</p>
+          <a href="#" class="item-comprar">Comprar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

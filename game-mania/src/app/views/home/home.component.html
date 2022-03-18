@@ -1,135 +1,18 @@
-<body (window:resize)="onResize($event)">
-  <header>
-      <div class="header">
-          <div class="logomarca">
-              <a href="#"><img src="assets/img/Logomarca.png" alt="logomarca do site" /> </a>
-          </div>
-          <div class="pesquisa-site">
-              <div class="barra-pesquisa">
-                  <input (keydown)="onKeydown($event)" id="pesquisar" type="text" id="txtBusca" placeholder="Buscar..." />
-                  <img src="assets/img/pesquisar-transparente.png" alt="pesquisar">
-              </div>
-          </div>
-          <div class="options">
-              <div class="usuario">
-                  <a routerLink="login"><img src="assets/img/usuario.png" alt="conta">
-                  <span>Login</span></a>
-              </div>
-              <div class="pedidos">
-                  <a href="#"><img src="assets/img/carrinho.png" alt="pedidos">
-                  <span>Pedidos</span></a>
-              </div>
-          </div>
-          <div class="menu-sanduich">
-              <!-- <a href="#" id="barras" onclick="mostrarMenu()"><img src="./images/nav-sanduich.jpg" alt="logomarca do site" /> </a> -->
-              <a href="#" id="barras"><img src="assets/img/nav-sanduich.jpg" alt="logomarca do site" /> </a>
-          </div>
-      </div>
-      <div id="menu" class="container-grid">
-          <nav class="menu">
-              <ul>
-                  <li><a href="#">Ofertas</a></li>
-                  <li><a href="#">Jogos</a></li>
-                  <li><a href="#">Consoles</a></li>
-                  <li><a href="#">Acessórios</a></li>
-                  <li><a href="#">Eletrônicos</a></li>
-              </ul>
-          </nav>
-      </div>
-  </header>
-
-  <div class="banner">
-  </div>
+<body>
+  <app-home-header></app-home-header>
+  <app-home-banner></app-home-banner>
 
   <div class="section-title">
     <div class="linha"></div>
     <span>Promoções</span>
   </div>
-
-  <section class="section-promo">
-      <div id="promos" class="container">
-        <ng-container>
-            <div *ngFor="let item of listaPromocoes" class="row">
-              <div class="promo-slide">
-                <div *ngFor="let p of item['Produtos']" class="col-md container-promo">
-                  <img src={{p.imagem}} alt="Item em promoção" />
-                  <p class="item-description">{{p.descricao}}</p>
-                  <p class="item-price">{{p.preco}}</p>
-                  <a href="#" class="item-comprar">Comprar</a>
-                </div>
-              </div>
-            </div>
-        </ng-container>
-        <!-- <div class="row promo-slide">
-          <div class="col-md container-promo">
-            <img src="assets/img/ps4-pro.jpg" alt="Item em promoção" />
-            <p class="item-description">Console PlayStation 4</p>
-            <p class="item-price">R$ 2999,99</p>
-            <a href="#" class="item-comprar">Comprar</a>
-          </div>
-          <div class="col-md container-promo">
-            <img src="assets/img/pes-2022.jpg" alt="Item em promoção" />
-            <p class="item-description">PES 2022 - Super Lançamento</p>
-            <p class="item-price">R$ 199,99</p>
-            <a href="#" class="item-comprar">Comprar</a>
-          </div>
-          <div class="col-md container-promo">
-            <img src="assets/img/redmi-g-2021.jpg" alt="Item em promoção" />
-            <p class="item-description">Notebook Gamer - XIAOMI G 2021</p>
-            <p class="item-price">4999,99</p>
-            <a href="#" class="item-comprar">Comprar</a>
-          </div>
-        </div> -->
-      </div>
-  </section>
+  <app-home-promocoes></app-home-promocoes>
 
   <div class="section-title">
     <div class="linha"></div>
     <span>O que pensam nossos clientes</span>
   </div>
+  <app-home-comentarios></app-home-comentarios>
 
-  <section class="section-comments">
-      <div id="comments" class="container">
-        <ng-container>
-          <div *ngFor="let item of listaComentarios" class="row">
-            <div class="comment-slide">
-              <div *ngFor="let c of item['comentarios']" class="col-md container-comments">
-                <img src="{{c.imagem}}" alt="Cliente do comentário" />
-                <p class="name-comment">{{c.nome}}</p>
-                <p class="city-comment">{{c.cidade}}</p>
-                <p class="desc-comment">{{c.comentario}}</p>
-              </div>
-            </div>
-          </div>
-        </ng-container>
-      </div>
-  </section>
-
-  <footer>
-      <div class="container">
-          <div class="row">
-              <div class="col-md">
-                  <p class="footer-title">Conteúdo:</p>
-                  <p class="footer-text">Fale Conosco</p>
-                  <p class="footer-text">Quem Somos</p>
-                  <p class="footer-text">Política de Privacidade</p>
-                  <p class="footer-text">Ouvidoria</p>
-              </div>
-
-              <div class="col-md">
-                  <p class="footer-title">Contatos:</p>
-                  <p class="footer-text">Telefone: (99) 99999-9999</p>
-                  <p class="footer-text">Whatsapp: (99) 99999-9999</p>
-                  <p class="footer-text">E-mail: atendimento@gamemania.com.br</p>
-              </div>
-
-              <div class="networks col-md">
-                  <p class="footer-title">Redes Sociais:</p>
-                  <span><a href="https://www.instagram.com/"><img class="btn-insta" src="assets/img/instagram.png" alt="Instagram" /> </a></span>
-                  <span><a href="https://www.facebook.com/"><img class="btn-face" src="assets/img/facebook.png" alt="Facebook" /> </a></span>
-                  <span><a href="https://www.twitter.com/"><img class="btn-twitter" src="assets/img/twitter.png" alt="Twitter" /> </a></span>
-              </div>
-          </div>
-      </div>
-  </footer>
+  <app-home-footer></app-home-footer>
 </body>
