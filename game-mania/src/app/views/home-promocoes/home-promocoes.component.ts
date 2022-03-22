@@ -99,7 +99,7 @@ export class HomePromocoesComponent implements OnInit {
     let timeOut = 0;
 
     if (this.loadSlides(".promo-slide","promo-on"))
-      timeOut = 5000;
+      timeOut = 3000;
 
     setTimeout(this.slides, timeOut);
   }

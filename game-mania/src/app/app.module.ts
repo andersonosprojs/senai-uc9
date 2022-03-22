@@ -11,6 +11,7 @@ import { HomeBannerComponent } from './views/home-banner/home-banner.component';
 import { HomeFooterComponent } from './views/home-footer/home-footer.component';
 import { HomePromocoesComponent } from './views/home-promocoes/home-promocoes.component';
 import { HomeComentariosComponent } from './views/home-comentarios/home-comentarios.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HomeComentariosComponent } from './views/home-comentarios/home-comentar
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

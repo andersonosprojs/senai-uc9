@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IComentario } from 'src/app/interfaces/icomentario';
+import { ComentarioService } from 'src/app/services/comentario.service';
 
 import { COMENTARIOS } from '../../mocks/comentarios.mock';
 import { Comentario } from '../../models/comentario';
@@ -8,6 +10,7 @@ import { Comentario } from '../../models/comentario';
   templateUrl: './home-comentarios.component.html',
   styleUrls: ['./home-comentarios.component.css']
 })
+
 export class HomeComentariosComponent implements OnInit {
 
   public listaComentarios = [
@@ -24,7 +27,7 @@ export class HomeComentariosComponent implements OnInit {
     }
   ];
 
-  constructor() {
+  constructor(private comentarioService: ComentarioService) {
     this.loadComentarios(window.innerWidth);
   }
 
@@ -37,27 +40,34 @@ export class HomeComentariosComponent implements OnInit {
     let id = 0;
     let qtdItens = 1;
     let auxComents: Comentario[] = [];
+    let listaComentarios: IComentario[] = [];
 
     if (comprimento > 769)
       qtdItens = 3;
 
-    this.listaComentarios = [];
+    /* Faz a requisição que retorna um array de comentários. */
+    this.comentarioService.getComentarios().subscribe( (c: IComentario[]) => {
+      listaComentarios = c;
 
-    Array.prototype.forEach.call(COMENTARIOS,  (i) => {
-      contador++;
-      auxComents.push(
-        new Comentario(id, i.imagem, i.nome, i.cidade, i.comentario)
-      );
+      this.listaComentarios = [];
 
-      if (contador == qtdItens) {
-        id++
-        this.listaComentarios.push({
-          id: id,
-          comentarios: auxComents
-        });
-        contador = 0;
-        auxComents = [];
-      }
+      /* Monta o array de objetos que será carregado na tela. */
+      Array.prototype.forEach.call(listaComentarios,  (i) => {
+        contador++;
+        auxComents.push(
+          new Comentario(id, i.imagem, i.nome, i.cidade, i.comentario)
+        );
+
+        if (contador == qtdItens) {
+          id++
+          this.listaComentarios.push({
+            id: id,
+            comentarios: auxComents
+          });
+          contador = 0;
+          auxComents = [];
+        }
+      });
     });
   }
 
