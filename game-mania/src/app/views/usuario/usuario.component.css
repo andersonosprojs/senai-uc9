@@ -82,7 +82,7 @@ form {
   font-size: 20px;
 }
 
-.body-login button {
+.body-login #gravar {
   width: 400px;
 
   border-style: solid;
@@ -98,4 +98,48 @@ form {
   text-transform: uppercase;
   background-color: #0008ff;
   border-radius: 5px;
+}
+
+.body-login #excluir {
+  width: 180px;
+
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1px;
+
+  padding: 10px;
+  margin: 20px;
+
+  color: #ffffff !important;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.body-login a {
+  width: 200px;
+
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1px;
+
+  padding: 13px;
+  padding-left: 165px;
+  padding-right: 165px;
+  margin: 20px;
+  text-decoration: none;
+
+  color: #ffffff !important;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  background-color: #000000;
+  border-radius: 5px;
+}
+
+.body-login a:hover {
+  background-color: #474747;
+  transition: .5s;
 }

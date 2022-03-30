@@ -11,8 +11,19 @@
       </div>
       <div class="options">
           <div class="usuario">
-              <a routerLink="login"><img src="assets/img/usuario.png" alt="conta">
-              <span>Login</span></a>
+            <ng-container *ngIf="userName === ''">
+              <a routerLink="login">
+                <img src="assets/img/usuario.png" alt="conta">
+                <span class="login">Login</span>
+              </a>
+            </ng-container>
+
+            <ng-container *ngIf="userName !== ''">
+              <a [routerLink]="" (click)="onClickConta()" id="conta">
+                <img src="assets/img/usuario.png" alt="conta" />
+                <span class="login">Olá, {{userName}}</span>
+              </a>
+            </ng-container>
           </div>
           <div class="pedidos">
               <a href="#"><img src="assets/img/carrinho.png" alt="pedidos">
@@ -20,14 +31,28 @@
           </div>
       </div>
       <div class="menu-sanduich">
-          <a href="#" id="barras"><img src="assets/img/nav-sanduich.jpg" alt="logomarca do site" /> </a>
+          <a href="#" id="barras">
+            <img src="assets/img/nav-sanduich.jpg" alt="logomarca do site" />
+          </a>
       </div>
   </div>
+
   <div id="menu" class="container-grid">
-      <nav class="menu">
-          <ul *ngFor="let item of menus">
-              <li><a routerLink="{{item.toLowerCase()}}">{{item}}</a></li>
-          </ul>
-      </nav>
+    <nav class="menu">
+        <ul *ngFor="let item of menus">
+            <li><a routerLink="{{item.toLowerCase()}}">{{item}}</a></li>
+        </ul>
+    </nav>
   </div>
+
+  <div id="menuconta" [ngClass]="isMenuConta? 'container-conta' : 'container-conta menuconta-desativo'">
+    <nav class="menuconta">
+      <ul>
+        <li><a routerLink="../usuario">Conta</a></li>
+        <li><a routerLink="" (click)="onClickExcluir()">Excluir Conta</a></li>
+        <li><a routerLink="" (click)="onClickSair()">Sair</a></li>
+      </ul>
+    </nav>
+  </div>
+
 </header>

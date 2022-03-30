@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { IUsuario } from 'src/app/interfaces/iusuario';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-home-header',
@@ -21,10 +24,27 @@ export class HomeHeaderComponent implements OnInit {
 
   public menus: string[] = [];
 
-  constructor() { }
+  private userLogado!: IUsuario;
+  public userName: string = "";
+  public isMenuConta: boolean = false;
+
+  constructor(
+    private localStorage: LocalStorageService,
+    private usuarioService: UsuarioService
+    ) { }
 
   ngOnInit(): void {
+    this.userLogado = this.localStorage.get("userLogado");
+    this.userName = "";
+
+    if (!this.isEmptyObject(this.userLogado)) {
+      Array.prototype.forEach.call(this.userLogado,  (i) => {
+        this.userName = i.nome;
+      })
+    }
+
     this.loadMenus(window.innerWidth);
+
     /* Faz o controle de mostrar ou não o menu de barras. */
     $("#barras").click(function() {
       $("#menu").toggleClass("menu-ativo")
@@ -41,6 +61,25 @@ export class HomeHeaderComponent implements OnInit {
     });
   }
 
+  onClickConta = () => {
+    this.isMenuConta = !this.isMenuConta;
+  }
+
+  onClickExcluir = () => {
+    if (!this.isEmptyObject(this.userLogado)) {
+      Array.prototype.forEach.call(this.userLogado,  (i) => {
+        this.usuarioService.Excluir(i.id);
+        this.onClickSair();
+      });
+    }
+  }
+
+  onClickSair = () => {
+    this.localStorage.remove("userLogado");
+    this.isMenuConta = false;
+    this.ngOnInit();
+  }
+
   onResize = (event: any) => {
 
     let comprimento = event.target.innerWidth;
@@ -48,13 +87,13 @@ export class HomeHeaderComponent implements OnInit {
     this.loadMenus(comprimento);
 
     if (comprimento > 769) {
-        if (!$("#menu").hasClass("menu-ativo")) {
-          $("#menu").addClass("menu-ativo")
-        }
+      if (!$("#menu").hasClass("menu-ativo")) {
+        $("#menu").addClass("menu-ativo")
+      }
     } else {
-        if ($("#menu").hasClass("menu-ativo")) {
-          $("#menu").removeClass("menu-ativo")
-        }
+      if ($("#menu").hasClass("menu-ativo")) {
+        $("#menu").removeClass("menu-ativo")
+      }
     }
   }
 
@@ -63,4 +102,7 @@ export class HomeHeaderComponent implements OnInit {
       alert("Realizada pesquisa no site!");
     }
   }
+
+  public isEmptyObject = (obj: object) =>
+    Object.keys(obj).length === 0;
 }

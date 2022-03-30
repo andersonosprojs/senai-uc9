@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { IComentario } from 'src/app/interfaces/icomentario';
 import { ComentarioService } from 'src/app/services/comentario.service';
 
-import { COMENTARIOS } from '../../mocks/comentarios.mock';
 import { Comentario } from '../../models/comentario';
 
 @Component({

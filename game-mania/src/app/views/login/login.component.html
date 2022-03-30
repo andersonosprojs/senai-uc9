@@ -20,13 +20,17 @@
     </header>
     <div class="body-login">
         <form #userForm="ngForm" (ngSubmit)="onSubmit()">
-
             <input type="email" name="email" id="email" placeholder="E-mail" required [(ngModel)]="userModel.email"><br/>
             <input type="password" name="senha" id="senha"  placeholder="Senha" required [(ngModel)]="userModel.senha" ><br/>
 
-            <button type="submit" class="botao-cadastrar">Entrar</button>
-
+            <button type="submit">Entrar</button> <br>
         </form>
+        <table>
+          <tr>
+            <td><a id="idusuario" routerLink="../usuario">Cadastrar Usuário</a></td>
+            <td><a id="redefinirsenha" routerLink="">Redefinir Senha</a></td>
+          </tr>
+        </table>
     </div>
 </body>
 

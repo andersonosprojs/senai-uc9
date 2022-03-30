@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login - GM (Game Mania)</title>
+</head>
+<body class="background-black">
+    <header>
+        <div class="header">
+            <div class="logomarca-pages">
+                <a href="index.html"><img src="assets/img/Logomarca.png" alt="logomarca do site" /> </a>
+            </div>
+        </div>
+        <div class="title-login">
+            <span>Cadastro de Usuário</span>
+        </div>
+    </header>
+    <div class="body-login">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+          <table>
+            <tr>
+              <td><input type="email" name="email" id="email" placeholder="E-mail" required [(ngModel)]="userModel.email"><br/></td>
+              <td><input type="text" name="name" id="name" placeholder="Nome" required [(ngModel)]="userModel.nome"><br/></td>
+            </tr>
+            <tr>
+              <td><input type="password" name="senha" id="senha"  placeholder="Senha" required [(ngModel)]="userModel.senha" ><br/></td>
+              <td><input type="password" name="confirmarSenha" id="confirmarSenha"  placeholder="Confirmar Senha" required [(ngModel)]="userModel.confsenha" ><br/></td>
+            </tr>
+            <tr>
+              <td><button type="submit" id="gravar" >Gravar</button></td>
+              <td><a routerLink="../login">Voltar</a></td>
+            </tr>
+          </table>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -12,6 +12,7 @@ import { HomeFooterComponent } from './views/home-footer/home-footer.component';
 import { HomePromocoesComponent } from './views/home-promocoes/home-promocoes.component';
 import { HomeComentariosComponent } from './views/home-comentarios/home-comentarios.component';
 import { HttpClientModule } from "@angular/common/http";
+import { UsuarioComponent } from './views/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from "@angular/common/http";
     HomeBannerComponent,
     HomeFooterComponent,
     HomePromocoesComponent,
-    HomeComentariosComponent
+    HomeComentariosComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,

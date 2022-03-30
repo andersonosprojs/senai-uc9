@@ -63,5 +63,27 @@
       "cidade": "Belo Horizonte - MG",
       "comentario": "Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed."
     }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Anderson Silva",
+      "email": "anderson.oliveirasilva@gmail.com",
+      "senha": "senha",
+      "confsenha": "senha"
+    },
+    {
+      "id": 2,
+      "nome": "Nicolas Samuel",
+      "email": "nicket0033@gmail.com",
+      "senha": "54321"
+    },
+    {
+      "id": 3,
+      "nome": "Teste aaaa",
+      "email": "teste@teste.com",
+      "senha": "teste",
+      "confsenha": "teste"
+    }
   ]
 }
