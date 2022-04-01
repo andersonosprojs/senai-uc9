@@ -69,8 +69,7 @@
       "id": 1,
       "nome": "Anderson Silva",
       "email": "anderson.oliveirasilva@gmail.com",
-      "senha": "senha",
-      "confsenha": "senha"
+      "senha": "senha"
     },
     {
       "id": 2,
@@ -80,8 +79,8 @@
     },
     {
       "id": 3,
-      "nome": "Teste aaaa",
-      "email": "teste@teste.com",
+      "nome": "Usuário Teste",
+      "email": "usuarios@teste.com",
       "senha": "teste",
       "confsenha": "teste"
     }
