@@ -1,8 +1,6 @@
-import { LocalStorageService } from './../../services/local-storage.service';
+import { Usuario } from './../../models/usuario';
+import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
-import { IUsuario } from 'src/app/interfaces/iusuario';
-import { User } from 'src/app/models/user';
-import { UsuarioService } from 'src/app/services/usuario.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,44 +11,24 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  userModel = new User();
+  loginModel = new Usuario();
+  mensagem = "";
 
-  constructor(private usuarioService: UsuarioService,
-    private localStorage: LocalStorageService,
-    private router: Router) {
+  constructor(
+    private router: Router,
+    private loginService: LoginService) {
   }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    this.localStorage.remove("userLogado");
-    this.usuarioService.getUsuarioByEmail(this.userModel.email).subscribe( (user: IUsuario) => {
-      this.validDataUser(user);
-    });
+    this.mensagem = "";
+    this.loginService.login(this.loginModel).subscribe(
+      response => {
+        this.router.navigateByUrl("") // volta para: home
+      },
+      error => this.mensagem = error.error
+    );
   }
-
-  validDataUser = (data: IUsuario) => {
-    let isSaveData = false;
-
-    if (this.isEmptyObject(data))
-      alert("E-mail não localizado");
-    else {
-      Array.prototype.forEach.call(data,  (i) => {
-        if (this.userModel.senha !== i.senha)
-          alert("Senha inválida");
-        else {
-          isSaveData = true;
-        }
-      })
-    };
-
-    if (isSaveData) {
-      this.localStorage.set("userLogado", data)
-      this.router.navigate([""]); // volta para: home
-    }
-  }
-
-  isEmptyObject = (obj: object) =>
-   Object.keys(obj).length === 0;
 }

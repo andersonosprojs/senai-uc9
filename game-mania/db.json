@@ -84,5 +84,19 @@
       "senha": "teste",
       "confsenha": "teste"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "anderson.oliveirasilva@gmail.com",
+      "password": "$2a$10$XD9o6XJMtNKv0xXEGhi46et/669ttAfp5v9w4mu4MVGDxSY8STnLK",
+      "name": "Anderson Silva"
+    },
+    {
+      "email": "nicket0033@gmail.com",
+      "password": "$2a$10$T2cEkkz5gR88Mx8YEE9tzuQ9Xis1eAE8ND.3N8pTB24xNXoqyYUhG",
+      "name": "Nicolas Samuel",
+      "id": 2
+    }
   ]
 }

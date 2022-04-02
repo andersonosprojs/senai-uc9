@@ -20,8 +20,8 @@
     </header>
     <div class="body-login">
         <form #userForm="ngForm" (ngSubmit)="onSubmit()">
-            <input type="email" name="email" id="email" placeholder="E-mail" required [(ngModel)]="userModel.email"><br/>
-            <input type="password" name="senha" id="senha"  placeholder="Senha" required [(ngModel)]="userModel.senha" ><br/>
+            <input type="email" name="email" id="email" placeholder="E-mail" required [(ngModel)]="loginModel.email"><br/>
+            <input type="password" name="senha" id="senha"  placeholder="Senha" required [(ngModel)]="loginModel.password" ><br/>
 
             <button type="submit">Entrar</button> <br>
         </form>
@@ -31,6 +31,7 @@
             <td><a id="redefinirsenha" routerLink="">Redefinir Senha</a></td>
           </tr>
         </table>
+        <p id="mensagem" *ngIf="mensagem != ''">{{ mensagem }}</p>
     </div>
 </body>
 
