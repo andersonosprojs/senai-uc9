@@ -24,11 +24,30 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.mensagem = "";
-    this.loginService.login(this.loginModel).subscribe(
-      response => {
-        this.router.navigateByUrl("") // volta para: home
-      },
-      error => this.mensagem = error.error
-    );
+    if (this.existeNaBlackList(this.loginModel.email))
+      this.mensagem = "E-mail inválido";
+    else {
+      this.loginService.login(this.loginModel).subscribe(
+        response =>this.router.navigateByUrl(""), // volta para: home
+        error => this.mensagem = error.error
+      );
+    }
+  }
+
+  blackList = [
+    "delete",
+    "insert",
+    "create",
+    "''",
+    ";"
+  ];
+
+  existeNaBlackList(login: string) {
+    let encontrouPalavra = false;
+    this.blackList.map( p => {
+      if (login.toLowerCase().includes(p))
+        encontrouPalavra = true;
+    })
+    return encontrouPalavra;
   }
 }
